@@ -99,5 +99,39 @@ python apicalls.py
 ### 6. Full Process
 Make cronjob to run full process every 10 minutes
 ```
+python fullprocess.py
 
+2023-11-09 18:19:28,559 - __main__ - INFO - There is new files. Ingesting new files...
+2023-11-09 18:19:28,559 - root - INFO - Files in the input folder: [PosixPath('sourcedata/dataset3.csv'), PosixPath('sourcedata/dataset4.csv')]
+2023-11-09 18:19:28,562 - root - INFO - Merged dataframe shape: (26, 5)
+2023-11-09 18:19:28,564 - scoring - INFO - Scoring model....
+2023-11-09 18:19:28,568 - scoring - INFO - F1 score: 0.6896551724137931
+2023-11-09 18:19:28,568 - __main__ - INFO - Model drift >> Previous F1_score 0.7692307692307693 != New F1_score 0.6896551724137931
+2023-11-09 18:19:28,568 - __main__ - INFO - Re-training...
+2023-11-09 18:19:28,568 - training - INFO - Training model....
+2023-11-09 18:19:28,573 - training - INFO - Model saved at /home/tari/Documents/Udacity/starter-file/models/trainedmodel.pkl
+2023-11-09 18:19:28,573 - training - INFO - Training model finished
+2023-11-09 18:19:28,573 - __main__ - INFO - Re-deploying
+2023-11-09 18:19:28,574 - deployment - INFO - All files saved at /home/tari/Documents/Udacity/starter-file/production_deployment
+.....
 ```
+Make cronjob to run full process every 20 mintues
+```
+crontab -e */20 * * * * /home/tari/Documents/Udacity/starter-file/fullprocess.py
+```
+
+![confusionmatrix](models/confusionmatrix2.png)
+![full_process](https://video.udacity-data.com/topher/2021/March/603d1ba7_fullprocess/fullprocess.jpg)
+
+
+## Code Quality
+Style Guide - Format your refactored code using PEP 8 – Style Guide. Running the command below can assist with formatting. To assist with meeting pep 8 guidelines, use autopep8 via the command line commands below:
+```bash
+autopep8 --in-place --aggressive --aggressive .
+```
+
+Style Checking and Error Spotting - Use Pylint for the code analysis looking for programming errors, and scope for further refactoring. You should check the pylint score using the command below.
+```bash
+pylint -rn -sn .
+```
+Docstring - All functions and files should have document strings that correctly identifies the inputs, outputs, and purpose of the function. All files have a document string that identifies the purpose of the file, the author, and the date the file was created.
