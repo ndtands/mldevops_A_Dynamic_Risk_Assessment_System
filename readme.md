@@ -117,7 +117,7 @@ python fullprocess.py
 ```
 Make cronjob to run full process every 20 mintues
 ```
-crontab -e */20 * * * * /home/tari/Documents/Udacity/starter-file/fullprocess.py
+crontab -e */20 * * * * /home/tari/Documents/Udacity/starter-file/cronjob.txt
 ```
 
 ![confusionmatrix](models/confusionmatrix2.png)
